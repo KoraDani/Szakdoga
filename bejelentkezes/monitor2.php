@@ -10,26 +10,32 @@ if (isset($_SESSION['userid'])) {
     $result1 = $conn->query("SELECT DISTINCT users.lakasId FROM szoba INNER JOIN users ON szoba.lakasID=users.lakasId WHERE users.id=$userid");
     $row = $result1->fetch_array();
     $lakasid = $row[0];
-    //echo $lakasid;
-    //ciklus
+    echo $lakasid;
+    $_SESSION['lakasid'] = $row[0];
     $result2 = $conn->query("SELECT DISTINCT szoba.id, szoba.szobaNev FROM szoba WHERE szoba.lakasID=$row[0]");
-    $row2 = $result2->fetch_array();
-    $result3 = $conn->query("SELECT adatok.homerseklet,adatok.paratartalom, adatok.levegoMin, eszkozok.eszkozNev FROM eszkozok INNER JOIN tobbeszkoz ON eszkozok.id=tobbeszkoz.eszkozID INNER JOIN szoba ON tobbeszkoz.szobaID=szoba.id INNER JOIN adatok ON adatok.szobaId=szoba.id WHERE adatok.szobaId=$row2[0] GROUP BY adatok.szobaId");
-    //$row1 = $result3->fetch_array();
-    while ($row2 = $result2->fetch_array()) {
-        $html .= '<div class="flexkimutatas">';
-        $html .= '<div class="asdasd"">';
-        $html .= '<p>' . $row2[1] . '</p><br>';
-        while ($row3 = $result3->fetch_array()) {
-            $html .= '<p id="1">Hőmérséklet: ' . $row3[0] . '</p><br>';
-            $html .= '<p id="1">Páratartalom: ' . $row3[1] . '</p><br>';
-            $html .= '<p id="1">Levegő minőség: ' . $row3[2] . '</p><br>';
-            $html .= '<label class="switch">';
-            $html .= '<p id="1">' . $row3[3] . '</p><br><input type="checkbox">';
-            $html .= '<span class="slider round"></span></label>';
-            $html .= '</div></div>';
+    while ($row1 = $result2->fetch_array()) {
+        //$row1 = $result3->fetch_array();
+        while ($row2 = $result2->fetch_array()) {
+            $result3 = $conn->query("SELECT adatok.homerseklet,adatok.paratartalom, adatok.levegoMin FROM adatok WHERE adatok.szobaId=$row1[0] GROUP BY adatok.szobaId");
+            $html .= '<div class="mt-5 d-flex justify-content-md-around flex-wrap col align-self-center">';
+            $html .= '<div class="m-1 bg-gradient p-2 shadow p-3 mb-5 bg-body rounded">';
+            $html .= '<p>' . $row2[1] . '</p><br>';
+            while ($row3 = $result3->fetch_array()) {
+                $html .= '<p id="1">Hőmérséklet: ' . $row3[0] . '</p><br>';
+                $html .= '<p id="1">Páratartalom: ' . $row3[1] . '</p><br>';
+                $html .= '<p id="1">Levegő minőség: ' . $row3[2] . '</p><br>';
+                $html .= '<div class="form-check form-switch">';
+                $html .= '<input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">';
+                $html .= '<label class="form-check-label" for="flexSwitchCheckDefault">Fűtés</label>';
+                $html .=  '</div>';
+                $html .= '<div class="form-check form-switch">';
+                $html .= '<input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">';
+                $html .= '<label class="form-check-label" for="flexSwitchCheckDefault">Eszköz</label>';
+                $html .= '</div>';
+                $html .= '</div>';
+                $html .= '</div>';
+            }
         }
     }
 }
-
 echo $html;

@@ -1,10 +1,10 @@
-<form method="post">
-    <div class="divclass">
+<form method="post" class="row justify-content-center align-items-center">
+    <div class="form-group col-sm-2 shadow p-3 mb-5 bg-body rounded h-100">
         
-        <input class="input" type="text" name="szobanev" placeholder="Szoba neve"><br>
-        <input class="input" type="text" name="terulet" placeholder="Adja meg a területét"><br>
+        <input class="form-control" type="text" name="szobanev" placeholder="Szoba neve"><br>
+        <input class="form-control" type="text" name="terulet" placeholder="Adja meg a területét"><br>
         <div class="select">
-            <select id="standard-select" name="futestipus">
+            <select class="custom-select" name="futestipus">
                 <optgroup label="Válassz...">
                     <option value="1">Távhő</option>
                     <option value="2">Gáz</option>
@@ -13,7 +13,7 @@
             </select><br>
         </div>
         <div class="select">
-            <select name="eszkoz">
+            <select name="eszkoz" class="custom-select">
                 <optgroup label="Válassz...">
                     <option value="1">termosztát</option>
                     <option value="2">redőny</option>
@@ -22,5 +22,5 @@
             </select><br>
         </div>
     
-    <button class="button" name="submit" type="submit">Küldés</button>
+    <button class="btn btn-dark mt-4" name="submit" type="submit">Küldés</button>
     </div>

@@ -16,6 +16,9 @@
 
     <?php
     require_once('connect.php');
+    $result1 = $conn->query("SELECT COUNT(id) FROM szoba");
+    $row = $result1->fetch_array();
+    $szobaszam = $row[0];
     if (isset($_POST['general'])) {
         for ($i = 0; $i < $_POST['hanyszor']; $i++) {
             $szobaid = rand(0, $szobaszam);

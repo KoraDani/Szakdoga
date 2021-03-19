@@ -1,9 +1,17 @@
-<div class="divkeret">
-    <form method="post">
-        <input class="input" type="text" name="user" placeholder="Felhasználónév"><br>
-        <input class="input" type="email" name="email" placeholder="Email cím" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"><br>
-        <input class="input" type="password" name="pwd1" placeholder="Jelszó"><br>
-        <input class="input" type="password" name="pwd2" placeholder="Jelszó ismétlése"><br>
-        <button class="button" name="submit">Regisztráció</button>
-    </form>
+<div class="row h-100 justify-content-center align-items-center">
+    <div class="form-group col-sm-2 shadow p-3 mb-5 bg-body rounded h-100">
+        <form method="post">
+            <label>Felhasználó név</label>
+            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                placeholder="Felhasználónév">
+            <label for="exampleInputEmail1">Email cím</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                placeholder="Email cím" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+            <label for="exampleInputPassword1">Jelszó</label>
+            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Jelszó">
+            <label for="exampleInputPassword1">Jelszó megerősítése</label>
+            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Jelszó megerősítése">
+            <button type="submit" class="btn btn-dark mt-4">Regisztráció</button>
+        </form>
+    </div>
 </div>

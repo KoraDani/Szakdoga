@@ -1,8 +1,9 @@
 <?php
 session_start();
 require_once("connect.php");
-include('session.php');
 echo file_get_contents('html/header.html');
+include('session.php');
+
 $error = "";
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
