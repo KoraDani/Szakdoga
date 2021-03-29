@@ -4,28 +4,46 @@ require_once('connect.php');
 echo file_get_contents('html/header.html');
 include('session.php');
 
-$homerseklet = "";
-$paratartalom = "";
-$levegomin = "";
+$homerseklet = null;
+$paratartalom = null;
+$levegomin = null;
 $result2 = $conn->query('SELECT DISTINCT szoba.id, szoba.szobaNev FROM szoba WHERE szoba.lakasID=' . $_SESSION['lakasid']);
-echo '<form method="post">';
+/*$row = $result2->fetch_array();
+$szobaid = $row[0];
+echo $szobaid;*/
+echo '<form method="post" class=" d-flex  flex-wrap flex-coloum justify-content-center">';
 while ($row1 = $result2->fetch_array()) {
-	echo '<button name="szobanev" value=' . $row1[0] . '>' . $row1[1] . '</button>';
+	echo '<button type="submit" class="btn btn-info mt-3 m-2" name="szobak" value=' . $row1[0] . '>' . $row1[1] . '</button>';
 }
 echo '</form>';
-$szobaid = $_POST['szobanev'];
+/*if (isset()) {
+	# code...
+}*/
+$szobaid = $_POST['szobak'];
 $result = $conn->query("SELECT id,homerseklet,paratartalom,levegoMin FROM adatok WHERE szobaId='$szobaid' ORDER BY id DESC LIMIT 10");
+$row1 = $result->fetch_array();
 
+$homerseklet = trim($row1['homerseklet'] . ",");
+$paratartalom = trim($row1['paratartalom'] . ",");
+$levegomin = trim($row1['levegoMin'] . ",");
+
+$idk = array();
+$homerseklet1 = array();
 while ($row = $result->fetch_array()) {
+	array_push($idk,$row['id']);
+	array_push($homerseklet1,$row['homerseklet']);
 	$homerseklet = $homerseklet . '"' . $row['homerseklet'] . '",';
 	$paratartalom = $paratartalom . '"' . $row['paratartalom'] . '",';
 	$levegomin = $levegomin . '"' . $row['levegoMin'] . '",';
 }
-
-$homerseklet = trim($homerseklet . ",");
-$paratartalom = trim($paratartalom . ",");
-$levegomin = trim($levegomin . ",");
+/*echo $homerseklet;
+print_r($homerseklet1);
+$homerseklet = trim($homerseklet, ",");// '1','2',"3","4","5","6","7","8","9","10"
+$paratartalom = trim($paratartalom, ",");
+$levegomin = trim($levegomin, ",");<?php echo $homerseklet; ?> <?php echo $levegomin; ?>
+echo $homerseklet;*/
 ?>
+
 <script src="http://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js"></script>
 <div id="container">
 	<canvas id="chart" style="width: 100%; height: 60vh; background: #222; border: 1px solid #555652; margin-top: 10px;"></canvas>
@@ -35,7 +53,7 @@ $levegomin = trim($levegomin . ",");
 	var myChart = new Chart(ctx, {
 		type: 'line',
 		data: {
-			lables: [1, 2, 3, 4, 5, 6, 7, 8, 9],
+			labels: [1,2,3,4,5,6,7,8,9,10],
 			datasets: [{
 					label: "Hőmérséklet",
 					data: [<?php echo $homerseklet; ?>],
