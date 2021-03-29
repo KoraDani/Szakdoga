@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="okosotthonModelStoreContainer" CdmEntityContainer="OkosContext">
+    <EntitySetMapping Name="adatok">
+      <EntityTypeMapping TypeName="okosotthonModel.adatok">
+        <MappingFragment StoreEntitySet="adatok">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="szobaId" ColumnName="szobaId" />
+          <ScalarProperty Name="homerseklet" ColumnName="homerseklet" />
+          <ScalarProperty Name="paratartalom" ColumnName="paratartalom" />
+          <ScalarProperty Name="levegoMin" ColumnName="levegoMin" />
+          <ScalarProperty Name="datum" ColumnName="datum" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="eszkozok">
+      <EntityTypeMapping TypeName="okosotthonModel.eszkozok">
+        <MappingFragment StoreEntitySet="eszkozok">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="eszkozNev" ColumnName="eszkozNev" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="futes">
+      <EntityTypeMapping TypeName="okosotthonModel.futes">
+        <MappingFragment StoreEntitySet="futes">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="futesTipus" ColumnName="futesTipus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="lakas">
+      <EntityTypeMapping TypeName="okosotthonModel.lakas">
+        <MappingFragment StoreEntitySet="lakas">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="lakasnev" ColumnName="lakasnev" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="szoba">
+      <EntityTypeMapping TypeName="okosotthonModel.szoba">
+        <MappingFragment StoreEntitySet="szoba">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="szobaNev" ColumnName="szobaNev" />
+          <ScalarProperty Name="terulet" ColumnName="terulet" />
+          <ScalarProperty Name="lakasID" ColumnName="lakasID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="users">
+      <EntityTypeMapping TypeName="okosotthonModel.users">
+        <MappingFragment StoreEntitySet="users">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="felh" ColumnName="felh" />
+          <ScalarProperty Name="jelszo" ColumnName="jelszo" />
+          <ScalarProperty Name="emial" ColumnName="emial" />
+          <ScalarProperty Name="lakasId" ColumnName="lakasId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tobbeszkoz">
+      <EntityTypeMapping TypeName="okosotthonModel.tobbeszkoz">
+        <MappingFragment StoreEntitySet="tobbeszkoz">
+          <ScalarProperty Name="eszkozID" ColumnName="eszkozID" />
+          <ScalarProperty Name="szobaID" ColumnName="szobaID" />
+          <ScalarProperty Name="beki" ColumnName="beki" />
+          <ScalarProperty Name="fokozat" ColumnName="fokozat" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tobbfutes">
+      <EntityTypeMapping TypeName="okosotthonModel.tobbfutes">
+        <MappingFragment StoreEntitySet="tobbfutes">
+          <ScalarProperty Name="futesID" ColumnName="futesID" />
+          <ScalarProperty Name="szobaID" ColumnName="szobaID" />
+          <ScalarProperty Name="beki" ColumnName="beki" />
+          <ScalarProperty Name="fokozat" ColumnName="fokozat" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

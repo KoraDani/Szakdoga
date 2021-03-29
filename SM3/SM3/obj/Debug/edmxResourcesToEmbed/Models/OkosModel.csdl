@@ -1,0 +1,210 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="okosotthonModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="adatok">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="szobaId" Type="Int32" />
+    <Property Name="homerseklet" Type="Int32" Nullable="false" />
+    <Property Name="paratartalom" Type="Int32" Nullable="false" />
+    <Property Name="levegoMin" Type="Int32" Nullable="false" />
+    <Property Name="datum" Type="DateTime" />
+    <NavigationProperty Name="szoba" Relationship="Self.adatok_ibfk_1" FromRole="adatok" ToRole="szoba" />
+  </EntityType>
+  <EntityType Name="eszkozok">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="eszkozNev" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tobbeszkoz" Relationship="Self.tobbeszkoz_ibfk_1" FromRole="eszkozok" ToRole="tobbeszkoz" />
+  </EntityType>
+  <EntityType Name="futes">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="futesTipus" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tobbfutes" Relationship="Self.tobbfutes_ibfk_1" FromRole="futes" ToRole="tobbfutes" />
+  </EntityType>
+  <EntityType Name="lakas">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="lakasnev" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="szoba" Relationship="Self.szoba_ibfk_1" FromRole="lakas" ToRole="szoba" />
+    <NavigationProperty Name="users" Relationship="Self.users_ibfk_1" FromRole="lakas" ToRole="users" />
+  </EntityType>
+  <EntityType Name="szoba">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="szobaNev" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="terulet" Type="Int32" Nullable="false" />
+    <Property Name="lakasID" Type="Int32" />
+    <NavigationProperty Name="adatok" Relationship="Self.adatok_ibfk_1" FromRole="szoba" ToRole="adatok" />
+    <NavigationProperty Name="lakas" Relationship="Self.szoba_ibfk_1" FromRole="szoba" ToRole="lakas" />
+    <NavigationProperty Name="tobbeszkoz" Relationship="Self.tobbeszkoz_ibfk_2" FromRole="szoba" ToRole="tobbeszkoz" />
+    <NavigationProperty Name="tobbfutes" Relationship="Self.tobbfutes_ibfk_2" FromRole="szoba" ToRole="tobbfutes" />
+  </EntityType>
+  <EntityType Name="users">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="felh" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="jelszo" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="emial" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="lakasId" Type="Int32" />
+    <NavigationProperty Name="lakas" Relationship="Self.users_ibfk_1" FromRole="users" ToRole="lakas" />
+  </EntityType>
+  <EntityType Name="tobbeszkoz">
+    <Key>
+      <PropertyRef Name="beki" />
+      <PropertyRef Name="fokozat" />
+    </Key>
+    <Property Name="eszkozID" Type="Int32" />
+    <Property Name="szobaID" Type="Int32" />
+    <Property Name="beki" Type="Int32" Nullable="false" />
+    <Property Name="fokozat" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="eszkozok" Relationship="Self.tobbeszkoz_ibfk_1" FromRole="tobbeszkoz" ToRole="eszkozok" />
+    <NavigationProperty Name="szoba" Relationship="Self.tobbeszkoz_ibfk_2" FromRole="tobbeszkoz" ToRole="szoba" />
+  </EntityType>
+  <EntityType Name="tobbfutes">
+    <Key>
+      <PropertyRef Name="beki" />
+      <PropertyRef Name="fokozat" />
+    </Key>
+    <Property Name="futesID" Type="Int32" />
+    <Property Name="szobaID" Type="Int32" />
+    <Property Name="beki" Type="Int32" Nullable="false" />
+    <Property Name="fokozat" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="futes" Relationship="Self.tobbfutes_ibfk_1" FromRole="tobbfutes" ToRole="futes" />
+    <NavigationProperty Name="szoba" Relationship="Self.tobbfutes_ibfk_2" FromRole="tobbfutes" ToRole="szoba" />
+  </EntityType>
+  <Association Name="adatok_ibfk_1">
+    <End Role="szoba" Type="Self.szoba" Multiplicity="0..1" />
+    <End Role="adatok" Type="Self.adatok" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="szoba">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="adatok">
+        <PropertyRef Name="szobaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="tobbeszkoz_ibfk_1">
+    <End Role="eszkozok" Type="Self.eszkozok" Multiplicity="0..1" />
+    <End Role="tobbeszkoz" Type="Self.tobbeszkoz" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="eszkozok">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tobbeszkoz">
+        <PropertyRef Name="eszkozID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="tobbfutes_ibfk_1">
+    <End Role="futes" Type="Self.futes" Multiplicity="0..1" />
+    <End Role="tobbfutes" Type="Self.tobbfutes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="futes">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tobbfutes">
+        <PropertyRef Name="futesID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="szoba_ibfk_1">
+    <End Role="lakas" Type="Self.lakas" Multiplicity="0..1" />
+    <End Role="szoba" Type="Self.szoba" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="lakas">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="szoba">
+        <PropertyRef Name="lakasID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="users_ibfk_1">
+    <End Role="lakas" Type="Self.lakas" Multiplicity="0..1" />
+    <End Role="users" Type="Self.users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="lakas">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="users">
+        <PropertyRef Name="lakasId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="tobbeszkoz_ibfk_2">
+    <End Role="szoba" Type="Self.szoba" Multiplicity="0..1" />
+    <End Role="tobbeszkoz" Type="Self.tobbeszkoz" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="szoba">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tobbeszkoz">
+        <PropertyRef Name="szobaID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="tobbfutes_ibfk_2">
+    <End Role="szoba" Type="Self.szoba" Multiplicity="0..1" />
+    <End Role="tobbfutes" Type="Self.tobbfutes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="szoba">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tobbfutes">
+        <PropertyRef Name="szobaID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="OkosContext" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="adatok" EntityType="Self.adatok" />
+    <EntitySet Name="eszkozok" EntityType="Self.eszkozok" />
+    <EntitySet Name="futes" EntityType="Self.futes" />
+    <EntitySet Name="lakas" EntityType="Self.lakas" />
+    <EntitySet Name="szoba" EntityType="Self.szoba" />
+    <EntitySet Name="users" EntityType="Self.users" />
+    <EntitySet Name="tobbeszkoz" EntityType="Self.tobbeszkoz" />
+    <EntitySet Name="tobbfutes" EntityType="Self.tobbfutes" />
+    <AssociationSet Name="adatok_ibfk_1" Association="Self.adatok_ibfk_1">
+      <End Role="szoba" EntitySet="szoba" />
+      <End Role="adatok" EntitySet="adatok" />
+    </AssociationSet>
+    <AssociationSet Name="tobbeszkoz_ibfk_1" Association="Self.tobbeszkoz_ibfk_1">
+      <End Role="eszkozok" EntitySet="eszkozok" />
+      <End Role="tobbeszkoz" EntitySet="tobbeszkoz" />
+    </AssociationSet>
+    <AssociationSet Name="tobbfutes_ibfk_1" Association="Self.tobbfutes_ibfk_1">
+      <End Role="futes" EntitySet="futes" />
+      <End Role="tobbfutes" EntitySet="tobbfutes" />
+    </AssociationSet>
+    <AssociationSet Name="szoba_ibfk_1" Association="Self.szoba_ibfk_1">
+      <End Role="lakas" EntitySet="lakas" />
+      <End Role="szoba" EntitySet="szoba" />
+    </AssociationSet>
+    <AssociationSet Name="users_ibfk_1" Association="Self.users_ibfk_1">
+      <End Role="lakas" EntitySet="lakas" />
+      <End Role="users" EntitySet="users" />
+    </AssociationSet>
+    <AssociationSet Name="tobbeszkoz_ibfk_2" Association="Self.tobbeszkoz_ibfk_2">
+      <End Role="szoba" EntitySet="szoba" />
+      <End Role="tobbeszkoz" EntitySet="tobbeszkoz" />
+    </AssociationSet>
+    <AssociationSet Name="tobbfutes_ibfk_2" Association="Self.tobbfutes_ibfk_2">
+      <End Role="szoba" EntitySet="szoba" />
+      <End Role="tobbfutes" EntitySet="tobbfutes" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
