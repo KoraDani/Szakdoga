@@ -30,3 +30,4 @@ C:\Users\Dani\Documents\c# projektek\SM3\SM3\obj\Debug\SM3.exe
 C:\Users\Dani\Documents\c# projektek\SM3\SM3\obj\Debug\SM3.pdb
 C:\Users\Dani\Documents\c# projektek\SM3\SM3\obj\Debug\SM3.Views.MainForm.resources
 C:\Users\Dani\Documents\c# projektek\SM3\SM3\obj\Debug\SM3.Views.LoginForm.resources
+C:\Users\Dani\Documents\c# projektek\SM3\SM3\obj\Debug\SM3.Views.FelhasznalokForm.resources

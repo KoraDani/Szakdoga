@@ -14,16 +14,12 @@ namespace SM3.Models
     
     public partial class users
     {
-        public users()
-        {
-            this.lakas = new HashSet<lakas>();
-        }
         public int id { get; set; }
         public string felh { get; set; }
         public string jelszo { get; set; }
         public string emial { get; set; }
         public Nullable<int> lakasId { get; set; }
     
-        public virtual ICollection<lakas> lakas { get; set; }
+        public virtual lakas lakas { get; set; }
     }
 }

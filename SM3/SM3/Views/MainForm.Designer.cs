@@ -29,95 +29,210 @@ namespace SM3.Views
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.FelhNevTextBox = new System.Windows.Forms.TextBox();
-            this.JelszoTextBox = new System.Windows.Forms.TextBox();
-            this.BelepesButton = new System.Windows.Forms.Button();
-            this.errorPFelhNev = new System.Windows.Forms.ErrorProvider(this.components);
-            this.errorPJelszo = new System.Windows.Forms.ErrorProvider(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.errorPFelhNev)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorPJelszo)).BeginInit();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.SzobaNTextBox = new System.Windows.Forms.TextBox();
+            this.TeruletTextBox = new System.Windows.Forms.TextBox();
+            this.LakasTextBox = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.ujToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mentesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.torlesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.SzobaIdLabel = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 36);
+            this.label1.Location = new System.Drawing.Point(185, 49);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(81, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Felhasználónév";
+            this.label1.Size = new System.Drawing.Size(64, 13);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Szoba neve";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(43, 85);
+            this.label2.Location = new System.Drawing.Point(185, 108);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(36, 13);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Jelszó";
+            this.label2.Size = new System.Drawing.Size(40, 13);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Terület";
             // 
-            // FelhNevTextBox
+            // label3
             // 
-            this.FelhNevTextBox.Location = new System.Drawing.Point(100, 33);
-            this.FelhNevTextBox.Name = "FelhNevTextBox";
-            this.FelhNevTextBox.Size = new System.Drawing.Size(136, 20);
-            this.FelhNevTextBox.TabIndex = 2;
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(185, 171);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(41, 13);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "Eszköz";
             // 
-            // JelszoTextBox
+            // label4
             // 
-            this.JelszoTextBox.Location = new System.Drawing.Point(100, 82);
-            this.JelszoTextBox.Name = "JelszoTextBox";
-            this.JelszoTextBox.Size = new System.Drawing.Size(136, 20);
-            this.JelszoTextBox.TabIndex = 3;
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(185, 229);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(64, 13);
+            this.label4.TabIndex = 4;
+            this.label4.Text = "Fűtés Típus";
             // 
-            // BelepesButton
+            // SzobaNTextBox
             // 
-            this.BelepesButton.Location = new System.Drawing.Point(100, 130);
-            this.BelepesButton.Name = "BelepesButton";
-            this.BelepesButton.Size = new System.Drawing.Size(75, 23);
-            this.BelepesButton.TabIndex = 4;
-            this.BelepesButton.Text = "Belépés";
-            this.BelepesButton.UseVisualStyleBackColor = true;
-            this.BelepesButton.Click += new System.EventHandler(this.BelepesButton_Click);
+            this.SzobaNTextBox.Location = new System.Drawing.Point(262, 41);
+            this.SzobaNTextBox.Name = "SzobaNTextBox";
+            this.SzobaNTextBox.Size = new System.Drawing.Size(100, 20);
+            this.SzobaNTextBox.TabIndex = 5;
             // 
-            // errorPFelhNev
+            // TeruletTextBox
             // 
-            this.errorPFelhNev.ContainerControl = this;
+            this.TeruletTextBox.Location = new System.Drawing.Point(262, 105);
+            this.TeruletTextBox.Name = "TeruletTextBox";
+            this.TeruletTextBox.Size = new System.Drawing.Size(100, 20);
+            this.TeruletTextBox.TabIndex = 6;
             // 
-            // errorPJelszo
+            // LakasTextBox
             // 
-            this.errorPJelszo.ContainerControl = this;
+            this.LakasTextBox.Location = new System.Drawing.Point(262, 281);
+            this.LakasTextBox.Name = "LakasTextBox";
+            this.LakasTextBox.Size = new System.Drawing.Size(100, 20);
+            this.LakasTextBox.TabIndex = 10;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(185, 284);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(63, 13);
+            this.label5.TabIndex = 9;
+            this.label5.Text = "Lakás neve";
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem1,
+            this.ujToolStripMenuItem,
+            this.mentesToolStripMenuItem,
+            this.torlesToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(800, 24);
+            this.menuStrip1.TabIndex = 12;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(12, 20);
+            // 
+            // ujToolStripMenuItem
+            // 
+            this.ujToolStripMenuItem.Name = "ujToolStripMenuItem";
+            this.ujToolStripMenuItem.Size = new System.Drawing.Size(30, 20);
+            this.ujToolStripMenuItem.Text = "Új";
+            this.ujToolStripMenuItem.Click += new System.EventHandler(this.ujToolStripMenuItem_Click);
+            // 
+            // mentesToolStripMenuItem
+            // 
+            this.mentesToolStripMenuItem.Name = "mentesToolStripMenuItem";
+            this.mentesToolStripMenuItem.Size = new System.Drawing.Size(58, 20);
+            this.mentesToolStripMenuItem.Text = "Mentés";
+            this.mentesToolStripMenuItem.Click += new System.EventHandler(this.mentesToolStripMenuItem_Click);
+            // 
+            // torlesToolStripMenuItem
+            // 
+            this.torlesToolStripMenuItem.Name = "torlesToolStripMenuItem";
+            this.torlesToolStripMenuItem.Size = new System.Drawing.Size(49, 20);
+            this.torlesToolStripMenuItem.Text = "Törlés";
+            this.torlesToolStripMenuItem.Click += new System.EventHandler(this.torlesToolStripMenuItem_Click);
+            // 
+            // SzobaIdLabel
+            // 
+            this.SzobaIdLabel.AutoSize = true;
+            this.SzobaIdLabel.Location = new System.Drawing.Point(420, 44);
+            this.SzobaIdLabel.Name = "SzobaIdLabel";
+            this.SzobaIdLabel.Size = new System.Drawing.Size(13, 13);
+            this.SzobaIdLabel.TabIndex = 13;
+            this.SzobaIdLabel.Text = "0";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(262, 171);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 21);
+            this.comboBox1.TabIndex = 14;
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(262, 221);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(121, 21);
+            this.comboBox2.TabIndex = 15;
+            // 
+            // listBox1
+            // 
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.Location = new System.Drawing.Point(25, 41);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(120, 264);
+            this.listBox1.TabIndex = 16;
+            this.listBox1.SelectedValueChanged += new System.EventHandler(this.listBox1_SelectedValueChanged);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(264, 190);
-            this.Controls.Add(this.BelepesButton);
-            this.Controls.Add(this.JelszoTextBox);
-            this.Controls.Add(this.FelhNevTextBox);
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.comboBox2);
+            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.SzobaIdLabel);
+            this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.LakasTextBox);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.TeruletTextBox);
+            this.Controls.Add(this.SzobaNTextBox);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "MainForm";
-            this.Text = "MainForm";
-            ((System.ComponentModel.ISupportInitialize)(this.errorPFelhNev)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorPJelszo)).EndInit();
+            this.Text = "LoginView";
+            this.Load += new System.EventHandler(this.LoginForm_Load);
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox FelhNevTextBox;
-        private System.Windows.Forms.TextBox JelszoTextBox;
-        private System.Windows.Forms.Button BelepesButton;
-        private System.Windows.Forms.ErrorProvider errorPFelhNev;
-        private System.Windows.Forms.ErrorProvider errorPJelszo;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox SzobaNTextBox;
+        private System.Windows.Forms.TextBox TeruletTextBox;
+        private System.Windows.Forms.TextBox LakasTextBox;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem ujToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mentesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem torlesToolStripMenuItem;
+        private System.Windows.Forms.Label SzobaIdLabel;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ListBox listBox1;
     }
 }

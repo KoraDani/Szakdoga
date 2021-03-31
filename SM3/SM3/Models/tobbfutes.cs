@@ -16,10 +16,15 @@ namespace SM3.Models
     {
         public Nullable<int> futesID { get; set; }
         public Nullable<int> szobaID { get; set; }
-        public int beki { get; set; }
-        public int fokozat { get; set; }
+        public int bekiF { get; set; }
+        public int fokozatF { get; set; }
     
         public virtual futes futes { get; set; }
         public virtual szoba szoba { get; set; }
+        public tobbfutes(int futesID,int szobaID)
+        {
+            this.futesID = futesID;
+            this.szobaID = szobaID;
+        }
     }
 }

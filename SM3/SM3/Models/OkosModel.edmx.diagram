@@ -11,15 +11,15 @@
         <EntityTypeShape EntityType="okosotthonModel.lakas" Width="1.5" PointX="0.75" PointY="6" IsExpanded="true" />
         <EntityTypeShape EntityType="okosotthonModel.szoba" Width="1.5" PointX="3" PointY="4.25" IsExpanded="true" />
         <EntityTypeShape EntityType="okosotthonModel.users" Width="1.5" PointX="3" PointY="7.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="okosotthonModel.tobbeszkoz" Width="1.5" PointX="5.25" PointY="1.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="okosotthonModel.tobbfutes" Width="1.5" PointX="5.25" PointY="7.375" IsExpanded="true" />
         <AssociationConnector Association="okosotthonModel.adatok_ibfk_1" ManuallyRouted="false" />
-        <AssociationConnector Association="okosotthonModel.tobbeszkoz_ibfk_1" ManuallyRouted="false" />
-        <AssociationConnector Association="okosotthonModel.tobbfutes_ibfk_1" ManuallyRouted="false" />
         <AssociationConnector Association="okosotthonModel.szoba_ibfk_1" ManuallyRouted="false" />
         <AssociationConnector Association="okosotthonModel.users_ibfk_1" ManuallyRouted="false" />
-        <AssociationConnector Association="okosotthonModel.tobbeszkoz_ibfk_2" ManuallyRouted="false" />
-        <AssociationConnector Association="okosotthonModel.tobbfutes_ibfk_2" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="okosotthonModel.tobbeszkoz" Width="1.5" PointX="5.25" PointY="1.25" />
+        <AssociationConnector Association="okosotthonModel.tobbeszkoz_ibfk_1" />
+        <AssociationConnector Association="okosotthonModel.tobbeszkoz_ibfk_2" />
+        <EntityTypeShape EntityType="okosotthonModel.tobbfutes" Width="1.5" PointX="5.25" PointY="8.25" />
+        <AssociationConnector Association="okosotthonModel.tobbfutes_ibfk_1" />
+        <AssociationConnector Association="okosotthonModel.tobbfutes_ibfk_2" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

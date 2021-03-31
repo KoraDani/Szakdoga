@@ -1,5 +1,4 @@
-﻿using SM3.Models;
-using SM3.Presenters;
+﻿using SM3.Presenters;
 using SM3.ViewInterfaces;
 using System;
 using System.Collections.Generic;
@@ -13,52 +12,41 @@ using System.Windows.Forms;
 
 namespace SM3.Views
 {
-    public partial class LoginForm : Form, ISzobakListView
+    public partial class LoginForm : Form, ILoginView
     {
-        private SzobakListaPresenter presenter;
-        private bool loaded;
+        private LoginPresenter presenter;
         public LoginForm()
         {
             InitializeComponent();
-            presenter = new SzobakListaPresenter(this);
+            presenter = new LoginPresenter(this);
         }
 
-        public List<szoba> szobaLista 
-        { 
-            set
-            {
-                checkedListBox1.DataSource = value;
-                checkedListBox1.DisplayMember = "szobaNev";
-                checkedListBox1.ValueMember = "id";
-            } 
-        }
-        public szoba szobak 
-        { 
-            get => throw new NotImplementedException();
-            set 
-            {
-                SzobaNTextBox.Text = value.szobaNev;
-                TeruletTextBox.Text = value.terulet.ToString();
-                //EszkozTextBox.Text = value.tobbeszkoz();
-                //FutesTextBox.Text = value.tobbfutes();
-            } 
-        }
-
-        private void LoginForm_Load(object sender, EventArgs e)
+        public string felhNev
         {
-            presenter.LoadData();
-            loaded = true;
+            get => FelhNevTextBox.Text;
+        }
+        public string jelszo
+        {
+            get => JelszoTextBox.Text;
+        }
+        public string errorFelhNev
+        {
+            set => errorPFelhNev.SetError(FelhNevTextBox, value);
+        }
+        public string errorJelszo
+        {
+            set => errorPJelszo.SetError(JelszoTextBox, value);
         }
 
-        private void checkedListBox1_SelectedValueChanged(object sender, EventArgs e)
+        private void BelepesButton_Click(object sender, EventArgs e)
         {
-            if (loaded)
+            if (presenter.Belepes())
             {
-                if (checkedListBox1.SelectedItem != null)
-                {
-                    var id = int.Parse(checkedListBox1.SelectedValue.ToString());
-                    presenter.GetSzoba(id);
-                }
+                
+                MainForm loginForm = new MainForm();
+                this.Hide();
+                loginForm.ShowDialog();
+                this.Close();
             }
         }
     }

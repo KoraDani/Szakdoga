@@ -61,20 +61,19 @@
     <EntitySetMapping Name="tobbeszkoz">
       <EntityTypeMapping TypeName="okosotthonModel.tobbeszkoz">
         <MappingFragment StoreEntitySet="tobbeszkoz">
-          <ScalarProperty Name="eszkozID" ColumnName="eszkozID" />
+          <ScalarProperty Name="bekiE" ColumnName="bekiE" />
           <ScalarProperty Name="szobaID" ColumnName="szobaID" />
-          <ScalarProperty Name="beki" ColumnName="beki" />
-          <ScalarProperty Name="fokozat" ColumnName="fokozat" />
+          <ScalarProperty Name="eszkozID" ColumnName="eszkozID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="tobbfutes">
       <EntityTypeMapping TypeName="okosotthonModel.tobbfutes">
         <MappingFragment StoreEntitySet="tobbfutes">
-          <ScalarProperty Name="futesID" ColumnName="futesID" />
+          <ScalarProperty Name="fokozatF" ColumnName="fokozatF" />
+          <ScalarProperty Name="bekiF" ColumnName="bekiF" />
           <ScalarProperty Name="szobaID" ColumnName="szobaID" />
-          <ScalarProperty Name="beki" ColumnName="beki" />
-          <ScalarProperty Name="fokozat" ColumnName="fokozat" />
+          <ScalarProperty Name="futesID" ColumnName="futesID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

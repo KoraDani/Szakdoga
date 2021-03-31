@@ -29,107 +29,82 @@ namespace SM3.Views
         /// </summary>
         private void InitializeComponent()
         {
-            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.SzobaNTextBox = new System.Windows.Forms.TextBox();
-            this.TeruletTextBox = new System.Windows.Forms.TextBox();
-            this.EszkozTextBox = new System.Windows.Forms.TextBox();
-            this.FutesTextBox = new System.Windows.Forms.TextBox();
+            this.FelhNevTextBox = new System.Windows.Forms.TextBox();
+            this.JelszoTextBox = new System.Windows.Forms.TextBox();
+            this.BelepesButton = new System.Windows.Forms.Button();
+            this.errorPFelhNev = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorPJelszo = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errorPFelhNev)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorPJelszo)).BeginInit();
             this.SuspendLayout();
-            // 
-            // checkedListBox1
-            // 
-            this.checkedListBox1.FormattingEnabled = true;
-            this.checkedListBox1.Location = new System.Drawing.Point(12, 12);
-            this.checkedListBox1.Name = "checkedListBox1";
-            this.checkedListBox1.Size = new System.Drawing.Size(120, 394);
-            this.checkedListBox1.TabIndex = 0;
-            this.checkedListBox1.SelectedValueChanged += new System.EventHandler(this.checkedListBox1_SelectedValueChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(186, 26);
+            this.label1.Location = new System.Drawing.Point(13, 36);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(64, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Szoba neve";
+            this.label1.Size = new System.Drawing.Size(81, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Felhasználónév";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(186, 85);
+            this.label2.Location = new System.Drawing.Point(43, 85);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(40, 13);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Terület";
+            this.label2.Size = new System.Drawing.Size(36, 13);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Jelszó";
             // 
-            // label3
+            // FelhNevTextBox
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(186, 148);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(41, 13);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "Eszköz";
+            this.FelhNevTextBox.Location = new System.Drawing.Point(100, 33);
+            this.FelhNevTextBox.Name = "FelhNevTextBox";
+            this.FelhNevTextBox.Size = new System.Drawing.Size(136, 20);
+            this.FelhNevTextBox.TabIndex = 2;
             // 
-            // label4
+            // JelszoTextBox
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(186, 206);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(64, 13);
-            this.label4.TabIndex = 4;
-            this.label4.Text = "Fűtés Típus";
+            this.JelszoTextBox.Location = new System.Drawing.Point(100, 82);
+            this.JelszoTextBox.Name = "JelszoTextBox";
+            this.JelszoTextBox.Size = new System.Drawing.Size(136, 20);
+            this.JelszoTextBox.TabIndex = 3;
             // 
-            // SzobaNTextBox
+            // BelepesButton
             // 
-            this.SzobaNTextBox.Location = new System.Drawing.Point(263, 18);
-            this.SzobaNTextBox.Name = "SzobaNTextBox";
-            this.SzobaNTextBox.Size = new System.Drawing.Size(100, 20);
-            this.SzobaNTextBox.TabIndex = 5;
+            this.BelepesButton.Location = new System.Drawing.Point(100, 130);
+            this.BelepesButton.Name = "BelepesButton";
+            this.BelepesButton.Size = new System.Drawing.Size(75, 23);
+            this.BelepesButton.TabIndex = 4;
+            this.BelepesButton.Text = "Belépés";
+            this.BelepesButton.UseVisualStyleBackColor = true;
+            this.BelepesButton.Click += new System.EventHandler(this.BelepesButton_Click);
             // 
-            // TeruletTextBox
+            // errorPFelhNev
             // 
-            this.TeruletTextBox.Location = new System.Drawing.Point(263, 82);
-            this.TeruletTextBox.Name = "TeruletTextBox";
-            this.TeruletTextBox.Size = new System.Drawing.Size(100, 20);
-            this.TeruletTextBox.TabIndex = 6;
+            this.errorPFelhNev.ContainerControl = this;
             // 
-            // EszkozTextBox
+            // errorPJelszo
             // 
-            this.EszkozTextBox.Location = new System.Drawing.Point(263, 145);
-            this.EszkozTextBox.Name = "EszkozTextBox";
-            this.EszkozTextBox.Size = new System.Drawing.Size(100, 20);
-            this.EszkozTextBox.TabIndex = 7;
+            this.errorPJelszo.ContainerControl = this;
             // 
-            // FutesTextBox
-            // 
-            this.FutesTextBox.Location = new System.Drawing.Point(263, 203);
-            this.FutesTextBox.Name = "FutesTextBox";
-            this.FutesTextBox.Size = new System.Drawing.Size(100, 20);
-            this.FutesTextBox.TabIndex = 8;
-            // 
-            // LoginForm
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.FutesTextBox);
-            this.Controls.Add(this.EszkozTextBox);
-            this.Controls.Add(this.TeruletTextBox);
-            this.Controls.Add(this.SzobaNTextBox);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
+            this.ClientSize = new System.Drawing.Size(264, 190);
+            this.Controls.Add(this.BelepesButton);
+            this.Controls.Add(this.JelszoTextBox);
+            this.Controls.Add(this.FelhNevTextBox);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.checkedListBox1);
-            this.Name = "LoginForm";
-            this.Text = "LoginView";
-            this.Load += new System.EventHandler(this.LoginForm_Load);
+            this.Name = "MainForm";
+            this.Text = "MainForm";
+            ((System.ComponentModel.ISupportInitialize)(this.errorPFelhNev)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorPJelszo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -137,14 +112,12 @@ namespace SM3.Views
 
         #endregion
 
-        private System.Windows.Forms.CheckedListBox checkedListBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox SzobaNTextBox;
-        private System.Windows.Forms.TextBox TeruletTextBox;
-        private System.Windows.Forms.TextBox EszkozTextBox;
-        private System.Windows.Forms.TextBox FutesTextBox;
+        private System.Windows.Forms.TextBox FelhNevTextBox;
+        private System.Windows.Forms.TextBox JelszoTextBox;
+        private System.Windows.Forms.Button BelepesButton;
+        private System.Windows.Forms.ErrorProvider errorPFelhNev;
+        private System.Windows.Forms.ErrorProvider errorPJelszo;
     }
 }
