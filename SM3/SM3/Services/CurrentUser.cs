@@ -10,5 +10,6 @@ namespace SM3.Services
     {
         public static int Id { get; set; }
         public static string UserName { get; set; }
+        public static int lakasId { get; set; }
     }
 }

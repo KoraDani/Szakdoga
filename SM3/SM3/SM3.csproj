@@ -81,6 +81,7 @@
     <Compile Include="Models\eszkozok.cs">
       <DependentUpon>OkosModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\felh-Partial.cs" />
     <Compile Include="Models\futes.cs">
       <DependentUpon>OkosModel.tt</DependentUpon>
     </Compile>

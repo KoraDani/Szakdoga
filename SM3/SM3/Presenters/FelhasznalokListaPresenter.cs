@@ -1,4 +1,5 @@
 ﻿using SM3.Models;
+using SM3.Services;
 using SM3.ViewInterfaces;
 using System;
 using System.Collections.Generic;
@@ -16,6 +17,7 @@ namespace SM3.Presenters
         {
             view = param;
             db = new OkosContext();
+            var felhasznalok = db.users.Where(x => x.lakasId == CurrentUser.lakasId);
         }
         public void LoadData()
         {
@@ -25,5 +27,50 @@ namespace SM3.Presenters
         {
             view.users = db.users.Find(id);
         }
+        public void SaveFelhasznalo()
+        {
+            //Módosult vagy új feladat
+            var felH = view.users;
+            felH.id = CurrentUser.Id;
+            //Adatbázisban lévő feladat
+            var letezik = db.szoba.Find(felH.id);
+            if (letezik != null)
+            {
+                //Kiszedi a társítást a db rekordból
+                db.Entry(letezik).State = System.Data.Entity.EntityState.Detached;
+                db.Entry(felH).State = System.Data.Entity.EntityState.Modified;
+                //Újra társítja a feladatott új értékekkel
+            }
+            else
+            {
+                db.users.Add(felH);
+            }
+            db.SaveChanges();
+            LoadData();
+        }
+        /*
+        public void CreateFelhasznalo()
+        {
+            var id = db.szoba
+                .Select(x => x.id)
+                // Ha üres a tábla, akkor 0 lesz az értéke
+                .DefaultIfEmpty(0)
+                // Lekérdezi a legnagyobb számot
+                .Max() + 1;
+            view.szoba = new szoba(0, null, 0);
+            //view.tobbfutes = new tobbfutes(0, id);
+            //view.tobbeszkoz = new tobbeszkoz(0, id);
+        }
+
+        public void DeleteFelhasznalo(int id)
+        {
+            var szoba = db.szoba.Find(id);
+            if (szoba != null)
+            {
+                db.szoba.Remove(szoba);
+            }
+            db.SaveChanges();
+            LoadData();
+        }*/
     }
 }

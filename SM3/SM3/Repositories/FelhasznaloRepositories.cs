@@ -23,6 +23,11 @@ namespace SM3.Repositories
             }
             return 0;
         }
+        public int GetLakas(string felhnev)
+        {
+            var lakas = db.users.FirstOrDefault(x => x.felh ==felhnev);
+            return (int)lakas.lakasId;
+        }
         public bool Authenticate(string felhnev, string jelszo)
         {
             return db.users.Any(x => x.felh == felhnev && x.jelszo == jelszo);

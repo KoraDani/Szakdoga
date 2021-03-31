@@ -27,32 +27,59 @@ namespace SM3.Views
         {
             set 
             {
-                listBox1.DataSource = value;
-                listBox1.DisplayMember = "felh";
-                listBox1.ValueMember = "id";
+                FelhasznalokListBox.DataSource = value;
+                FelhasznalokListBox.DisplayMember = "felh";
+                FelhasznalokListBox.ValueMember = "id";
             } 
         }
         public users users 
-        { 
-            get => throw new NotImplementedException(); 
-            set => throw new NotImplementedException(); 
+        {
+            get 
+            {
+                return new users(FelhasznalokListBox.Text,EmailTextBox.Text, JelszoTextBox.Text, int.Parse(LakasIDTextBox.Text));
+            }
+            set 
+            {
+                FelhTextBox.Text = value.felh;
+                EmailTextBox.Text = value.emial;
+                LakasIDTextBox.Text = value.lakasId.ToString();
+            }
         }
 
         private void FelhasznalokForm_Load(object sender, EventArgs e)
         {
             presenter.LoadData();
+            loaded = true;
         }
 
         private void listBox1_SelectedValueChanged(object sender, EventArgs e)
         {
             if (loaded)
             {
-                if (listBox1.SelectedItem != null)
+                if (FelhasznalokListBox.SelectedItem != null)
                 {
-                    var id = int.Parse(listBox1.SelectedValue.ToString());
+                    var id = int.Parse(FelhasznalokListBox.SelectedValue.ToString());
                     presenter.GetFelhasznalo(id);
                 }
             }
+        }
+
+        private void felhasználókToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void szobákToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MainForm mainForm = new MainForm();
+            this.Hide();
+            mainForm.ShowDialog();
+            this.Close();
         }
     }
 }

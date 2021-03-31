@@ -1,4 +1,5 @@
-﻿using SM3.Repositories;
+﻿using SM3.Models;
+using SM3.Repositories;
 using SM3.Services;
 using SM3.ViewInterfaces;
 using System;
@@ -13,10 +14,12 @@ namespace SM3.Presenters
     {
         private ILoginView view;
         private FelhasznaloRepositories repo;
+        private OkosContext db;
         public LoginPresenter(ILoginView param)
         {
             view = param;
             repo = new FelhasznaloRepositories();
+            db = new OkosContext();
         }
 
         public bool Belepes()
@@ -42,11 +45,13 @@ namespace SM3.Presenters
                 {
                     var felhId = repo.GetId(view.felhNev);
                     var jelszo = Hash.Encrypt(view.jelszo + felhId);
+
                     // Jó jelszó van a felhasználóhoz
                     if (repo.Authenticate(view.felhNev, jelszo))
                     {
                         CurrentUser.Id = felhId;
                         CurrentUser.UserName = view.felhNev;
+                        CurrentUser.lakasId = repo.GetLakas(view.felhNev);
                         return true;
                     }
                     else

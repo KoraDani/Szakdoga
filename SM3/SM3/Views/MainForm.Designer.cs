@@ -35,13 +35,13 @@ namespace SM3.Views
             this.label4 = new System.Windows.Forms.Label();
             this.SzobaNTextBox = new System.Windows.Forms.TextBox();
             this.TeruletTextBox = new System.Windows.Forms.TextBox();
-            this.LakasTextBox = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.ujToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mentesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.torlesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.felhasználókToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.SzobaIdLabel = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
@@ -99,13 +99,6 @@ namespace SM3.Views
             this.TeruletTextBox.Size = new System.Drawing.Size(100, 20);
             this.TeruletTextBox.TabIndex = 6;
             // 
-            // LakasTextBox
-            // 
-            this.LakasTextBox.Location = new System.Drawing.Point(262, 281);
-            this.LakasTextBox.Name = "LakasTextBox";
-            this.LakasTextBox.Size = new System.Drawing.Size(100, 20);
-            this.LakasTextBox.TabIndex = 10;
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -121,7 +114,8 @@ namespace SM3.Views
             this.toolStripMenuItem1,
             this.ujToolStripMenuItem,
             this.mentesToolStripMenuItem,
-            this.torlesToolStripMenuItem});
+            this.torlesToolStripMenuItem,
+            this.felhasználókToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(800, 24);
@@ -153,6 +147,13 @@ namespace SM3.Views
             this.torlesToolStripMenuItem.Size = new System.Drawing.Size(49, 20);
             this.torlesToolStripMenuItem.Text = "Törlés";
             this.torlesToolStripMenuItem.Click += new System.EventHandler(this.torlesToolStripMenuItem_Click);
+            // 
+            // felhasználókToolStripMenuItem
+            // 
+            this.felhasználókToolStripMenuItem.Name = "felhasználókToolStripMenuItem";
+            this.felhasználókToolStripMenuItem.Size = new System.Drawing.Size(86, 20);
+            this.felhasználókToolStripMenuItem.Text = "Felhasználók";
+            this.felhasználókToolStripMenuItem.Click += new System.EventHandler(this.felhasználókToolStripMenuItem_Click);
             // 
             // SzobaIdLabel
             // 
@@ -198,7 +199,6 @@ namespace SM3.Views
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.SzobaIdLabel);
             this.Controls.Add(this.menuStrip1);
-            this.Controls.Add(this.LakasTextBox);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.TeruletTextBox);
             this.Controls.Add(this.SzobaNTextBox);
@@ -223,7 +223,6 @@ namespace SM3.Views
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox SzobaNTextBox;
         private System.Windows.Forms.TextBox TeruletTextBox;
-        private System.Windows.Forms.TextBox LakasTextBox;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
@@ -234,5 +233,6 @@ namespace SM3.Views
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ToolStripMenuItem felhasználókToolStripMenuItem;
     }
 }

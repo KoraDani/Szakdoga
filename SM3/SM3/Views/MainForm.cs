@@ -135,6 +135,12 @@ namespace SM3.Views
             presenter.DeleteFeladat(id);
         }
 
-        
+        private void felhasználókToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FelhasznalokForm felhForm = new FelhasznalokForm();
+            this.Hide();
+            felhForm.ShowDialog();
+            this.Close();
+        }
     }
 }

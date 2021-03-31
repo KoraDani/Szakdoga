@@ -1,4 +1,5 @@
 ﻿using SM3.Models;
+using SM3.Services;
 using SM3.ViewInterfaces;
 using System;
 using System.Collections.Generic;
@@ -19,7 +20,7 @@ namespace SM3.Presenters
         }
         public void LoadData()
         {
-            view.szobaLista = db.szoba.Where(x=>x.lakasID==1).ToList();
+            view.szobaLista = db.szoba.Where(x=>x.lakasID== CurrentUser.lakasId).ToList();
             view.eszkozoklista = db.eszkozok.ToList();
             view.futesLista = db.futes.ToList();
         }
@@ -33,24 +34,24 @@ namespace SM3.Presenters
         public void SaveFeladat()
         {
             //Módosult vagy új feladat
-            var szoba = view.szoba;
+            var szoba1 = view.szoba;
             var eszkozok = view.tobbeszkoz;
             var futes = view.tobbfutes;
-            szoba.lakasID = 1;
+            szoba1.lakasID = CurrentUser.lakasId;
             //Adatbázisban lévő feladat
-            var dbletezik = db.szoba.Find(szoba.id);
+            var dbletezik = db.szoba.Find(szoba1.id);
             if (dbletezik != null)
             {
                 //Kiszedi a társítást a db rekordból
                 db.Entry(dbletezik).State = System.Data.Entity.EntityState.Detached;
                 //Újra társítja a feladatott új értékekkel
-                db.Entry(szoba).State = System.Data.Entity.EntityState.Modified;
+                db.Entry(szoba1).State = System.Data.Entity.EntityState.Modified;
                 db.Entry(eszkozok).State = System.Data.Entity.EntityState.Modified;
                 db.Entry(futes).State = System.Data.Entity.EntityState.Modified;
             }
             else
             {
-                db.szoba.Add(szoba);
+                db.szoba.Add(szoba1);
             }
             db.SaveChanges();
             LoadData();

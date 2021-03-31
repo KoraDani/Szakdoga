@@ -11,13 +11,13 @@ namespace SM3
     {
         /// <summary>
         /// The main entry point for the application.
-        /// </summary>
+        /// </summary>FelhasznalokForm
         [STAThread]
         static void Main()
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FelhasznalokForm());
+            Application.Run(new LoginForm());
         }
     }
 }
