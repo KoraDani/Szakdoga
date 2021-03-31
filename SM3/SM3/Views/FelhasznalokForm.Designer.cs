@@ -43,8 +43,6 @@ namespace SM3.Views
             this.torlesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label4 = new System.Windows.Forms.Label();
             this.EmailTextBox = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.LakasTextBox = new System.Windows.Forms.TextBox();
             this.szobákToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -74,7 +72,7 @@ namespace SM3.Views
             // 
             // LakasIDTextBox
             // 
-            this.LakasIDTextBox.Location = new System.Drawing.Point(249, 222);
+            this.LakasIDTextBox.Location = new System.Drawing.Point(249, 134);
             this.LakasIDTextBox.Name = "LakasIDTextBox";
             this.LakasIDTextBox.Size = new System.Drawing.Size(100, 20);
             this.LakasIDTextBox.TabIndex = 3;
@@ -100,7 +98,7 @@ namespace SM3.Views
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(175, 225);
+            this.label3.Location = new System.Drawing.Point(175, 137);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(63, 13);
             this.label3.TabIndex = 6;
@@ -130,18 +128,21 @@ namespace SM3.Views
             this.ujToolStripMenuItem.Name = "ujToolStripMenuItem";
             this.ujToolStripMenuItem.Size = new System.Drawing.Size(30, 20);
             this.ujToolStripMenuItem.Text = "Új";
+            this.ujToolStripMenuItem.Click += new System.EventHandler(this.ujToolStripMenuItem_Click);
             // 
             // mentesToolStripMenuItem
             // 
             this.mentesToolStripMenuItem.Name = "mentesToolStripMenuItem";
             this.mentesToolStripMenuItem.Size = new System.Drawing.Size(58, 20);
             this.mentesToolStripMenuItem.Text = "Mentés";
+            this.mentesToolStripMenuItem.Click += new System.EventHandler(this.mentesToolStripMenuItem_Click);
             // 
             // torlesToolStripMenuItem
             // 
             this.torlesToolStripMenuItem.Name = "torlesToolStripMenuItem";
             this.torlesToolStripMenuItem.Size = new System.Drawing.Size(49, 20);
             this.torlesToolStripMenuItem.Text = "Törlés";
+            this.torlesToolStripMenuItem.Click += new System.EventHandler(this.torlesToolStripMenuItem_Click);
             // 
             // label4
             // 
@@ -160,22 +161,6 @@ namespace SM3.Views
             this.EmailTextBox.Size = new System.Drawing.Size(100, 20);
             this.EmailTextBox.TabIndex = 14;
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(173, 140);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(65, 13);
-            this.label5.TabIndex = 17;
-            this.label5.Text = "Lakás Neve";
-            // 
-            // LakasTextBox
-            // 
-            this.LakasTextBox.Location = new System.Drawing.Point(249, 133);
-            this.LakasTextBox.Name = "LakasTextBox";
-            this.LakasTextBox.Size = new System.Drawing.Size(100, 20);
-            this.LakasTextBox.TabIndex = 16;
-            // 
             // szobákToolStripMenuItem
             // 
             this.szobákToolStripMenuItem.Name = "szobákToolStripMenuItem";
@@ -188,8 +173,6 @@ namespace SM3.Views
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.LakasTextBox);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.EmailTextBox);
             this.Controls.Add(this.menuStrip1);
@@ -226,8 +209,6 @@ namespace SM3.Views
         private System.Windows.Forms.ToolStripMenuItem torlesToolStripMenuItem;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox EmailTextBox;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox LakasTextBox;
         private System.Windows.Forms.ToolStripMenuItem szobákToolStripMenuItem;
     }
 }

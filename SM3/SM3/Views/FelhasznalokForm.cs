@@ -81,5 +81,23 @@ namespace SM3.Views
             mainForm.ShowDialog();
             this.Close();
         }
+
+        private void mentesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var kivalasztottID = int.Parse(FelhasznalokListBox.SelectedValue.ToString());
+            FelhasznalokListBox.ClearSelected();
+            presenter.SaveFelhasznalo(kivalasztottID);
+        }
+
+        private void ujToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            presenter.CreateFelhasznalo();
+        }
+
+        private void torlesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var id = int.Parse(FelhasznalokListBox.SelectedValue.ToString());
+            presenter.DeleteFelhasznalo(id);
+        }
     }
 }

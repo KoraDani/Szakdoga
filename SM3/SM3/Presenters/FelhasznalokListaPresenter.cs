@@ -27,13 +27,13 @@ namespace SM3.Presenters
         {
             view.users = db.users.Find(id);
         }
-        public void SaveFelhasznalo()
+        public void SaveFelhasznalo(int kivalasztottID)
         {
             //Módosult vagy új feladat
             var felH = view.users;
-            felH.id = CurrentUser.Id;
+            felH.id = kivalasztottID;
             //Adatbázisban lévő feladat
-            var letezik = db.szoba.Find(felH.id);
+            var letezik = db.users.Find(felH.id);
             if (letezik != null)
             {
                 //Kiszedi a társítást a db rekordból
@@ -45,32 +45,32 @@ namespace SM3.Presenters
             {
                 db.users.Add(felH);
             }
-            db.SaveChanges();
+            db.SaveChanges();//HIBA VAN
             LoadData();
         }
-        /*
+        
         public void CreateFelhasznalo()
         {
-            var id = db.szoba
+            var id = db.users
                 .Select(x => x.id)
                 // Ha üres a tábla, akkor 0 lesz az értéke
                 .DefaultIfEmpty(0)
                 // Lekérdezi a legnagyobb számot
                 .Max() + 1;
-            view.szoba = new szoba(0, null, 0);
+            view.users = new users(null,null,null,0);
             //view.tobbfutes = new tobbfutes(0, id);
             //view.tobbeszkoz = new tobbeszkoz(0, id);
         }
 
         public void DeleteFelhasznalo(int id)
         {
-            var szoba = db.szoba.Find(id);
-            if (szoba != null)
+            var felh = db.users.Find(id);
+            if (felh != null)
             {
-                db.szoba.Remove(szoba);
+                db.users.Remove(felh);
             }
             db.SaveChanges();
             LoadData();
-        }*/
+        }
     }
 }
