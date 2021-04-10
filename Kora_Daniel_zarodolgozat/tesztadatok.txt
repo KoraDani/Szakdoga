@@ -1,0 +1,2 @@
+felhasználó: Proba	jelszo: Proba123
+nyitó oldal: kezdo.php

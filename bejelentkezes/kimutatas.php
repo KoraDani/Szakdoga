@@ -18,7 +18,7 @@ while ($row1 = $result2->fetch_array()) {
 echo '</form>';
 /*if (isset()) {
 	# code...
-}*/
+}*/-
 $szobaid = $_POST['szobak'];
 $result = $conn->query("SELECT id,homerseklet,paratartalom,levegoMin FROM adatok WHERE szobaId='$szobaid' ORDER BY id DESC LIMIT 10");
 $row1 = $result->fetch_array();

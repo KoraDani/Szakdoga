@@ -27,25 +27,24 @@ namespace SM3.Presenters
         {
             view.users = db.users.Find(id);
         }
-        public void SaveFelhasznalo(int kivalasztottID)
+        public void SaveFelhasznalo()
         {
             //Módosult vagy új feladat
-            var felH = view.users;
-            felH.id = kivalasztottID;
+            var felh = view.users;
             //Adatbázisban lévő feladat
-            var letezik = db.users.Find(felH.id);
+            var letezik = db.users.Find(felh.id);
             if (letezik != null)
             {
                 //Kiszedi a társítást a db rekordból
                 db.Entry(letezik).State = System.Data.Entity.EntityState.Detached;
-                db.Entry(felH).State = System.Data.Entity.EntityState.Modified;
+                db.Entry(felh).State = System.Data.Entity.EntityState.Modified;
                 //Újra társítja a feladatott új értékekkel
             }
             else
             {
-                db.users.Add(felH);
+                db.users.Add(felh);
             }
-            db.SaveChanges();//HIBA VAN
+            db.SaveChanges();//Úgy kéne módosítani az felhasználót hogy a jelszó ne változzon és ne adjon ki hibát
             LoadData();
         }
         
@@ -57,7 +56,7 @@ namespace SM3.Presenters
                 .DefaultIfEmpty(0)
                 // Lekérdezi a legnagyobb számot
                 .Max() + 1;
-            view.users = new users(null,null,null,0);
+            view.users = new users(null,null,0);
             //view.tobbfutes = new tobbfutes(0, id);
             //view.tobbeszkoz = new tobbeszkoz(0, id);
         }

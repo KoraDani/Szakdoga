@@ -66,13 +66,19 @@ namespace SM3.Views
             get
             {
                 var id = int.Parse(SzobaIdLabel.Text);
-                return new tobbeszkoz(Convert.ToInt32(comboBox2.SelectedValue), id);
+                var tobbeszkoz = new tobbeszkoz(/*Convert.ToInt32(comboBox2.SelectedValue)*/);
+                tobbeszkoz.eszkozID = Convert.ToInt32(comboBox2.SelectedValue);
+                return tobbeszkoz;
             }
             set
             {
-                comboBox2.Text = value.eszkozID.ToString();
+                //comboBox2.Text = value.eszkozID.ToString();
+                //label7.Text = value.szoba.tobbeszkoz.ToString();
+                //comboBox2.Text = value.szoba.tobbeszkoz.ToString();
             }
         }
+
+
         #endregion
         #region Fűtés
         public List<futes> futesLista 
@@ -89,8 +95,8 @@ namespace SM3.Views
         {
             get
             {
-                var id = int.Parse(SzobaIdLabel.Text);
-                return new tobbfutes(Convert.ToInt32(comboBox1.SelectedValue), id);
+                //var id = int.Parse(SzobaIdLabel.Text);
+                return new tobbfutes(/*Convert.ToInt32(comboBox1.SelectedValue)*/);
             }
             set
             {

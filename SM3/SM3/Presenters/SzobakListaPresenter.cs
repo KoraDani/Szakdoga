@@ -40,19 +40,43 @@ namespace SM3.Presenters
             szoba1.lakasID = CurrentUser.lakasId;
             //Adatbázisban lévő feladat
             var dbletezik = db.szoba.Find(szoba1.id);
+            /*var dbeszkozletezik = db.tobbeszkoz.Find(szoba1.id);
+            var dbfutesleteezik = db.tobbfutes.Find(szoba1.id);*/
             if (dbletezik != null)
             {
                 //Kiszedi a társítást a db rekordból
                 db.Entry(dbletezik).State = System.Data.Entity.EntityState.Detached;
                 //Újra társítja a feladatott új értékekkel
                 db.Entry(szoba1).State = System.Data.Entity.EntityState.Modified;
-                db.Entry(eszkozok).State = System.Data.Entity.EntityState.Modified;
-                db.Entry(futes).State = System.Data.Entity.EntityState.Modified;
+                //db.Entry(eszkozok).State = System.Data.Entity.EntityState.Modified;
+                //db.Entry(futes).State = System.Data.Entity.EntityState.Modified;
             }
             else
             {
+                
                 db.szoba.Add(szoba1);
+                eszkozok.szobaID = szoba1.id;
+                szoba1.tobbeszkoz.Add(eszkozok);
+                db.SaveChanges();
+                //le kell kérdezni az legutolsó szoba id
+                eszkozok.szobaID = szoba1.id;
+                
+                db.tobbeszkoz.Add(eszkozok);
+                //futes.szobaID = szoba1.id;
+                //db.tobbfutes.Add(futes);
+                db.SaveChanges();
             }
+            /*if (dbeszkozletezik != null && dbfutesleteezik != null)
+            {
+                db.Entry(dbeszkozletezik).State = System.Data.Entity.EntityState.Detached;
+                db.Entry(dbfutesleteezik).State = System.Data.Entity.EntityState.Detached;
+                db.Entry(szoba1).State = System.Data.Entity.EntityState.Modified;
+            }
+            else
+            {*/
+            //db.tobbeszkoz.Add(eszkozok);
+            //db.tobbfutes.Add(futes);
+            //}
             db.SaveChanges();
             LoadData();
         }
@@ -65,9 +89,9 @@ namespace SM3.Presenters
                 .DefaultIfEmpty(0)
                 // Lekérdezi a legnagyobb számot
                 .Max() + 1;
-            view.szoba = new szoba(0,null,0);
-            //view.tobbfutes = new tobbfutes(0, id);
-            //view.tobbeszkoz = new tobbeszkoz(0, id);
+            view.szoba = new szoba(0,null,0/*,0*/);
+            view.tobbfutes = new tobbfutes(/*0*/);//eszko szoba id
+            view.tobbeszkoz = new tobbeszkoz(/*0*/);
         }
 
         public void DeleteFeladat(int id)

@@ -1,0 +1,9 @@
+#footer{
+    list-style-type: none;
+    font-size: 10px;
+    text-align: center;
+}
+.fakeimg {
+    height: 200px;
+    background: #aaa;
+  }

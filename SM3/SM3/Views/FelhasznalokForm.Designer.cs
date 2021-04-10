@@ -31,19 +31,17 @@ namespace SM3.Views
         {
             this.FelhasznalokListBox = new System.Windows.Forms.ListBox();
             this.FelhTextBox = new System.Windows.Forms.TextBox();
-            this.JelszoTextBox = new System.Windows.Forms.TextBox();
-            this.LakasIDTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.ujToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mentesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.torlesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.szobákToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label4 = new System.Windows.Forms.Label();
             this.EmailTextBox = new System.Windows.Forms.TextBox();
-            this.szobákToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.LakasIDTextBox = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -52,7 +50,7 @@ namespace SM3.Views
             this.FelhasznalokListBox.FormattingEnabled = true;
             this.FelhasznalokListBox.Location = new System.Drawing.Point(12, 44);
             this.FelhasznalokListBox.Name = "FelhasznalokListBox";
-            this.FelhasznalokListBox.Size = new System.Drawing.Size(120, 368);
+            this.FelhasznalokListBox.Size = new System.Drawing.Size(120, 264);
             this.FelhasznalokListBox.TabIndex = 0;
             this.FelhasznalokListBox.SelectedValueChanged += new System.EventHandler(this.listBox1_SelectedValueChanged);
             // 
@@ -63,20 +61,6 @@ namespace SM3.Views
             this.FelhTextBox.Size = new System.Drawing.Size(100, 20);
             this.FelhTextBox.TabIndex = 1;
             // 
-            // JelszoTextBox
-            // 
-            this.JelszoTextBox.Location = new System.Drawing.Point(249, 174);
-            this.JelszoTextBox.Name = "JelszoTextBox";
-            this.JelszoTextBox.Size = new System.Drawing.Size(100, 20);
-            this.JelszoTextBox.TabIndex = 2;
-            // 
-            // LakasIDTextBox
-            // 
-            this.LakasIDTextBox.Location = new System.Drawing.Point(249, 134);
-            this.LakasIDTextBox.Name = "LakasIDTextBox";
-            this.LakasIDTextBox.Size = new System.Drawing.Size(100, 20);
-            this.LakasIDTextBox.TabIndex = 3;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -85,15 +69,6 @@ namespace SM3.Views
             this.label1.Size = new System.Drawing.Size(81, 13);
             this.label1.TabIndex = 4;
             this.label1.Text = "Felhasználónév";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(202, 181);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(36, 13);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "Jelszó";
             // 
             // label3
             // 
@@ -114,7 +89,7 @@ namespace SM3.Views
             this.szobákToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(426, 24);
             this.menuStrip1.TabIndex = 13;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -144,6 +119,13 @@ namespace SM3.Views
             this.torlesToolStripMenuItem.Text = "Törlés";
             this.torlesToolStripMenuItem.Click += new System.EventHandler(this.torlesToolStripMenuItem_Click);
             // 
+            // szobákToolStripMenuItem
+            // 
+            this.szobákToolStripMenuItem.Name = "szobákToolStripMenuItem";
+            this.szobákToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
+            this.szobákToolStripMenuItem.Text = "Szobák";
+            this.szobákToolStripMenuItem.Click += new System.EventHandler(this.szobákToolStripMenuItem_Click);
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -161,26 +143,24 @@ namespace SM3.Views
             this.EmailTextBox.Size = new System.Drawing.Size(100, 20);
             this.EmailTextBox.TabIndex = 14;
             // 
-            // szobákToolStripMenuItem
+            // LakasIDTextBox
             // 
-            this.szobákToolStripMenuItem.Name = "szobákToolStripMenuItem";
-            this.szobákToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
-            this.szobákToolStripMenuItem.Text = "Szobák";
-            this.szobákToolStripMenuItem.Click += new System.EventHandler(this.szobákToolStripMenuItem_Click);
+            this.LakasIDTextBox.Location = new System.Drawing.Point(249, 134);
+            this.LakasIDTextBox.Name = "LakasIDTextBox";
+            this.LakasIDTextBox.Size = new System.Drawing.Size(100, 20);
+            this.LakasIDTextBox.TabIndex = 3;
             // 
             // FelhasznalokForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(426, 343);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.EmailTextBox);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.LakasIDTextBox);
-            this.Controls.Add(this.JelszoTextBox);
             this.Controls.Add(this.FelhTextBox);
             this.Controls.Add(this.FelhasznalokListBox);
             this.Name = "FelhasznalokForm";
@@ -197,10 +177,7 @@ namespace SM3.Views
 
         private System.Windows.Forms.ListBox FelhasznalokListBox;
         private System.Windows.Forms.TextBox FelhTextBox;
-        private System.Windows.Forms.TextBox JelszoTextBox;
-        private System.Windows.Forms.TextBox LakasIDTextBox;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
@@ -210,5 +187,6 @@ namespace SM3.Views
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox EmailTextBox;
         private System.Windows.Forms.ToolStripMenuItem szobákToolStripMenuItem;
+        private System.Windows.Forms.TextBox LakasIDTextBox;
     }
 }

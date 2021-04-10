@@ -22,7 +22,9 @@ namespace SM3.Views
             InitializeComponent();
             presenter = new FelhasznalokListaPresenter(this);
         }
+        #region Felhasználók
 
+        
         public List<users> felhasznalokLista 
         {
             set 
@@ -36,7 +38,7 @@ namespace SM3.Views
         {
             get 
             {
-                return new users(FelhasznalokListBox.Text,EmailTextBox.Text, JelszoTextBox.Text, int.Parse(LakasIDTextBox.Text));
+                return new users(FelhTextBox.Text, EmailTextBox.Text, int.Parse(LakasIDTextBox.Text));
             }
             set 
             {
@@ -45,7 +47,7 @@ namespace SM3.Views
                 LakasIDTextBox.Text = value.lakasId.ToString();
             }
         }
-
+        #endregion
         private void FelhasznalokForm_Load(object sender, EventArgs e)
         {
             presenter.LoadData();
@@ -86,7 +88,7 @@ namespace SM3.Views
         {
             var kivalasztottID = int.Parse(FelhasznalokListBox.SelectedValue.ToString());
             FelhasznalokListBox.ClearSelected();
-            presenter.SaveFelhasznalo(kivalasztottID);
+            presenter.SaveFelhasznalo();
         }
 
         private void ujToolStripMenuItem_Click(object sender, EventArgs e)
